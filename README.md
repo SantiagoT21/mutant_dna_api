@@ -175,6 +175,29 @@ The application requires the following environment variable to connect to the da
 
     Replace with your actual PostgreSQL connection string if not using Docker.
 
+### Jupyter Notebook - Initial Analysis and Test Cases
+
+This repository includes a Jupyter Notebook file (`analysis.ipynb`) that contains:
+
+- **Initial Challenge Analysis**: A detailed explanation of the challenge to find mutant and human DNA sequences and how the solution was developed.
+- **Test Cases**: Different test cases used to verify the correctness of the algorithm, including examples of both mutant and human DNA sequences.
+
+#### How to access the `.ipynb` file:
+
+1. Make sure you have Jupyter Notebook installed in your development environment. If not, you can install it using the following command:
+    ```bash
+    pip install notebook
+    ```
+
+2. Once Jupyter is installed, navigate to the directory where the `analysis.ipynb` file is located and run:
+    ```bash
+    jupyter notebook
+    ```
+
+3. This will open a window in your browser where you can access and explore the `analysis.ipynb` file to see the analysis and test cases.
+
+This file will help you better understand the proposed solution and how it is validated in different scenarios.
+
 ## Running Tests
 
 To run tests for the API, use `pytest` (or any testing framework you prefer):
