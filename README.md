@@ -226,4 +226,4 @@ To run tests for the API, use `pytest` (or any testing framework you prefer):
 
 ## License
 
-MIT License. See `LICENSE` for more information.
+Apache V2 License. See `LICENSE` for more information.
