@@ -175,7 +175,7 @@ The application requires the following environment variable to connect to the da
 
     Replace with your actual PostgreSQL connection string if not using Docker.
 
-### Jupyter Notebook - Initial Analysis and Test Cases
+## Jupyter Notebook - Initial Analysis and Test Cases
 
 This repository includes a Jupyter Notebook file (`analysis.ipynb`) that contains:
 
