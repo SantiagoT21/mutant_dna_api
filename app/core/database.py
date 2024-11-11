@@ -9,6 +9,12 @@ Base = declarative_base()
 
 
 def get_db():
+    """
+    Dependency to get a database connection
+    
+    Returns: 
+    sqlalchemy.orm.session.Session: Database session
+    """
     db = SessionLocal()
     try:
         yield db

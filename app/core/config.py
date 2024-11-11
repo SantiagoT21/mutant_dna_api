@@ -1,8 +1,10 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
+import os
 
+db_url = os.getenv("DATABASE_URL")
 
 class Settings(BaseSettings):
-    database_url: str = "sqlite:///./test.db"
+    DATABASE_URL: str = db_url
     testing: bool = False
 
     class Config:

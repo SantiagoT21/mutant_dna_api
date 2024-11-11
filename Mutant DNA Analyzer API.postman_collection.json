@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "32092b78-ace1-45a0-8ac2-799b1f10d66e",
+		"name": "Mutant DNA Analyzer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18492335"
+	},
+	"item": [
+		{
+			"name": "Init Request Docker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Docker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Docker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutant analyzer Docker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dna\": [\r\n        \"ATGCGA\",\r\n        \"CAGTGC\",\r\n        \"TTATGT\",\r\n        \"AGAAGG\",\r\n        \"CCCCTA\",\r\n        \"TCACTG\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/mutant",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"mutant"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "mutant analyzer False",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dna\": [\r\n        \"ATGCGA\",\r\n        \"CAGTGC\",\r\n        \"TTATGT\",\r\n        \"AGAGGA\",\r\n        \"CCCTAA\",\r\n        \"TCACTG\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/mutant",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"mutant"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 11 Nov 2024 22:46:12 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "30"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"DNA is not mutant\"\n}"
+				},
+				{
+					"name": "mutant analyzer True",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dna\": [\r\n        \"ATGCGA\",\r\n        \"CAGTGC\",\r\n        \"TTATGT\",\r\n        \"AGAAGG\",\r\n        \"CCCCTA\",\r\n        \"TCACTG\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/mutant",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"mutant"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 11 Nov 2024 22:46:43 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "27"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"DNA is mutant\"\n}"
+				}
+			]
+		}
+	]
+}

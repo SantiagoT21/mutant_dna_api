@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mutant_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://mutantanalizer:mutantanalizerpassword@db:5432/mutantanalizerdb
+      # don't put the key in the code, it's just for testing
+
+  db:
+    image: postgres:13
+    container_name: mutant_db
+    environment:
+      # don't put the keys in the code, it's just for testing
+      POSTGRES_USER: mutantanalizer
+      POSTGRES_PASSWORD: mutantanalizerpassword
+      POSTGRES_DB: mutantanalizerdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
